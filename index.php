@@ -4,12 +4,15 @@
 
 
 
-$password_array = [];
 
-$characters = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890!"£$%&/()=?^§<>;:_-.,@#][{}°*';
+
+$characters = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890!$%&/?@#*';
+
 
 $characters_array = str_split($characters);
 shuffle($characters_array);
+
+$password_array = [];
 
 $form_sent = !empty($_GET);
 
@@ -22,12 +25,6 @@ if ($form_sent) {
     }
 
     $password = implode($password_array);
-
-    var_dump($random_characters);
-    var_dump($characters_array);
-    var_dump($password_array);
-    var_dump($password_length);
-    var_dump($password);
 
 }
 
@@ -46,12 +43,17 @@ if ($form_sent) {
 
 <body>
 
-    <div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="container d-flex flex-column justify-content-center align-items-center vh-100">
 
         <form action="" method="GET">
             <input type="number" name='password-length' min='8' max="21">
             <button>invia</button>
         </form>
+
+
+        <h1>La tua password è:</h1>
+
+        <h2><?= $password ?></h2>
 
     </div>
 
